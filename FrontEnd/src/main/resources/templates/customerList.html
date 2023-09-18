@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .title{
+        text-align: center;
+        font-size: 50px;
+    }
+</style>
+<body>
+    <h1 class="title">Customer List</h1>
+<table class="center" style="width:80%">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customer}" >
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.age}"></td>
+        <td th:text="${customer.status}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
