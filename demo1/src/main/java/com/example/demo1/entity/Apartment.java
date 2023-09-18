@@ -2,6 +2,7 @@ package com.example.demo1.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
 
 @Getter
 @Setter
@@ -12,6 +13,7 @@ import lombok.*;
 public class Apartment {
     @Id
     @Column(name = "ID", nullable = false, length = 45)
+    @UuidGenerator
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 

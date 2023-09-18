@@ -2,6 +2,7 @@ package com.example.demo1.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
 
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 public class Contract {
     @Id
     @Column(name = "ID", nullable = false, length = 45)
+    @UuidGenerator
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
