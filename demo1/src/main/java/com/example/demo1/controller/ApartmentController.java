@@ -35,19 +35,34 @@ public class ApartmentController {
     }
 
     @PostMapping("/CSV")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("files") MultipartFile[] files) {
         String message = "";
         int code;
-        if (CSVHelper.hasCSVFormat(file)) {
+        boolean CSVCheck = true;
+        for(MultipartFile file : files) if(!CSVHelper.hasCSVFormat(file)){
+            CSVCheck = false;
+            break;
+        }
+        if (CSVCheck) {
             try {
-                apartmentService.save(file);
+
+                message = "Uploaded the file successfully: ";
+                for(MultipartFile file : files){
+                    apartmentService.save(file);
+                    message = message + " " + file.getOriginalFilename();
+                }
+
                 code = 200;
+
                 List<Apartment> data = apartmentService.getAllApartment();
-                message = "Uploaded the file successfully: " + file.getOriginalFilename();
+
                 return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message,data,code));
             } catch (Exception e) {
                 code = 409;
-                message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+
+                message = "Could not upload the file: ";
+                for(MultipartFile file : files) message = message + " " + file.getOriginalFilename();
+
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message, null, code));
             }
         }
