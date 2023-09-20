@@ -3,45 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
-<style>
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        text-align: center;
-    }
 
-    table.center {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .title {
-        text-align: center;
-        font-size: 50px;
-    }
-</style>
 <body>
-<h1 class="title">Contract List</h1>
-<table class="center" style="width:80%">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Customer ID</th>
-        <th>Apartment ID</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="contract : ${contract}">
-        <td th:text="${contract.id}"></td>
-        <td th:text="${contract.customerID}"></td>
-        <td th:text="${contract.apartmentID}"></td>
-        <td th:text="${contract.startDate}"></td>
-        <td th:text="${contract.endDate}"></td>
-    </tr>
-    </tbody>
-</table>
+<div id="wrapper">
+    <h1>Contract List</h1>
+    <table id="keywords">
+        <thead>
+        <tr>
+            <th><span>ID</span></th>
+            <th><span>Customer ID</span></th>
+            <th><span>Apartment ID</span></th>
+            <th><span>Start Date</span></th>
+            <th><span>End Date</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract : ${contract}">
+            <td class="lalign" th:text="${contract.id}"></td>
+            <td th:text="${contract.customerID.id}"></td>
+            <td th:text="${contract.apartmentID.id}"></td>
+            <td th:text="${contract.startDate}"></td>
+            <td th:text="${contract.endDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

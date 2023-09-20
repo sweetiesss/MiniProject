@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Apartment List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
-<style>
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        text-align: center;
-    }
 
-    table.center {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .title {
-        text-align: center;
-        font-size: 50px;
-    }
-</style>
 <body>
-<h1 class="title">Apartment List</h1>
-<table class="center" style="width:80%">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <td>Address</td>
-        <td>Rental Price</td>
-        <td>Number of Room</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="apartment : ${apartment}">
-        <td th:text="${apartment.id}"></td>
-        <td th:text="${apartment.address}"></td>
-        <td th:text="${apartment.retalPrice}"></td>
-        <td th:text="${apartment.numberOfRoom}"></td>
-    </tr>
-    </tbody>
-</table>
+<div id="wrapper">
+    <h1>Apartment List</h1>
+    <table id="keywords">
+        <thead>
+        <tr>
+            <th><span>ID</span></th>
+            <th><span>Address</span></th>
+            <th><span>Price</span></th>
+            <th><span>Room</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="apartment : ${apartment}">
+            <td class="lalign" th:text="${apartment.id}"></td>
+            <td th:text="${apartment.address}"></td>
+            <td th:text="${apartment.retalPrice}"></td>
+            <td th:text="${apartment.numberOfRoom}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="button-container">
+        <a href="http://localhost:8080/customer" class="button-link">
+            <button class="button-1" role="button">Go to Customer Page</button>
+        </a>
+
+        <a href="http://localhost:8080/contract" class="button-link">
+            <button class="button-2" role="button">Go to Contract Page</button>
+        </a>
+
+        <a href="http://localhost:8080" class="button-link">
+            <button class="button-3" role="button">Back to Main Page</button>
+        </a>
+    </div>
+
+</div>
 </body>
 </html>
