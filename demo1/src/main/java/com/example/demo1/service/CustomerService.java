@@ -20,20 +20,36 @@ public class CustomerService {
         return all;
     }
 
-    public void save(Customer customer) {
-        customerReposiroty.save(customer);
+    public void save(List<Customer> currCustomer, Customer customer) {
+
+        if(!duplicateCheck(customer, currCustomer)) customerReposiroty.save(customer);
     }
 
-    public Customer findById(String customerID) {
-        return customerReposiroty.findById(customerID).orElse(null);
-    }
-
-    public void save(MultipartFile file) {
+    public void save(MultipartFile file, List<Customer> currCustomer) {
         try {
-            List<Customer> customerList = CSVHelper.CSVCustomer(file.getInputStream());
+            List<Customer> customerList = CSVHelper.CSVCustomer(file.getInputStream(), currCustomer);
             customerReposiroty.saveAll(customerList);
         } catch (IOException e) {
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }
     }
+    public Customer findById(String customerID) {
+        return customerReposiroty.findById(customerID).orElse(null);
+    }
+
+    public boolean duplicateCheck(Customer customer, List<Customer> currCustomer){
+        boolean dup = false;
+
+        for(Customer cus : currCustomer)
+            if(cus.getFirstName().equals(customer.getFirstName()) &&
+                    cus.getLastName().equals(customer.getLastName()) &&
+                    cus.getAddress().equals(customer.getAddress()) &&
+                    cus.getAge().equals(customer.getAge()) &&
+                    cus.getStatus().equals(customer.getStatus())){
+                dup = true;
+                break;
+            }
+        return dup;
+    }
+
 }

@@ -4,7 +4,9 @@ import com.example.demo1.entity.Apartment;
 import com.example.demo1.entity.Contract;
 import com.example.demo1.entity.Customer;
 import com.example.demo1.service.ApartmentService;
+import com.example.demo1.service.ContractService;
 import com.example.demo1.service.CustomerService;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
@@ -18,15 +20,20 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
+import org.yaml.snakeyaml.scanner.Constant;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVHelper {    public static String TYPE = "text/csv";
-    private static String[] HEADERs = { "ID", "Title", "Description", "Published" };
+public class CSVHelper {
+    public static String TYPE = "text/csv";
+    private static final String[] CUSTOMERHEADER = { "FirstName", "LastName", "Address", "Age", "Status" };
+    private static final String[] APARTMENTHEADER = { "Address", "RetalPrice", "NumberOfRoom"};
+    private static final String[] CONTRACTHEADER = { "customerID", "apartmentID", "startDate", "endDate"};
     private static ApartmentService apartmentService;
     private static CustomerService customerService;
+    private static ContractService contractService;
     public static boolean hasCSVFormat(MultipartFile file) {
 
         if (!TYPE.equals(file.getContentType())) {
@@ -37,7 +44,7 @@ public class CSVHelper {    public static String TYPE = "text/csv";
     }
 
 
-    public static List<Customer> CSVCustomer(InputStream is) {
+    public static List<Customer> CSVCustomer(InputStream is, List<Customer> currCustomer) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
@@ -46,15 +53,17 @@ public class CSVHelper {    public static String TYPE = "text/csv";
 
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
+
+
             for (CSVRecord csvRecord : csvRecords) {
                 Customer customer = Customer.builder()
-                        .firstName(csvRecord.get("FirstName"))
-                        .lastName(csvRecord.get("LastName"))
-                        .address(csvRecord.get("Address"))
-                        .age(Integer.parseInt(csvRecord.get("Age")))
-                        .status(csvRecord.get("Status"))
+                        .firstName(csvRecord.get(CUSTOMERHEADER[0]))
+                        .lastName(csvRecord.get(CUSTOMERHEADER[1]))
+                        .address(csvRecord.get(CUSTOMERHEADER[2]))
+                        .age(Integer.parseInt(csvRecord.get(CUSTOMERHEADER[3])))
+                        .status(csvRecord.get(CUSTOMERHEADER[4]))
                         .build();
-                customerList.add(customer);
+                if(!customerService.duplicateCheck(customer, currCustomer)) customerList.add(customer);
             }
 
             return customerList;
@@ -64,7 +73,7 @@ public class CSVHelper {    public static String TYPE = "text/csv";
     }
 
 
-    public static List<Apartment> CSVApartment(InputStream is) {
+    public static List<Apartment> CSVApartment(InputStream is, List<Apartment> currApartments) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.EXCEL.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
@@ -74,11 +83,11 @@ public class CSVHelper {    public static String TYPE = "text/csv";
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
             for (CSVRecord csvRecord : csvRecords) {
                 Apartment apartment = Apartment.builder()
-                        .address(csvRecord.get("Address"))
-                        .retalPrice(csvRecord.get("RetalPrice"))
-                        .numberOfRoom(Integer.parseInt(csvRecord.get("NumberOfRoom")))
+                        .address(csvRecord.get(APARTMENTHEADER[0]))
+                        .retalPrice(csvRecord.get(APARTMENTHEADER[1]))
+                        .numberOfRoom(Integer.parseInt(csvRecord.get(APARTMENTHEADER[2])))
                         .build();
-                apartmentList.add(apartment);
+                if(!apartmentService.duplicateCheck(apartment, currApartments)) apartmentList.add(apartment);
             }
 
             return apartmentList;
@@ -88,7 +97,7 @@ public class CSVHelper {    public static String TYPE = "text/csv";
     }
 
 
-    public static List<Contract> CSVContract (InputStream is) {
+    public static List<Contract> CSVContract (InputStream is, List<Contract> currContract) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
@@ -99,18 +108,16 @@ public class CSVHelper {    public static String TYPE = "text/csv";
 
             for (CSVRecord csvRecord : csvRecords) {
 
-
-                Customer customer = customerService.findById(csvRecord.get("customerID"));
-                Apartment apartment = apartmentService.findById(csvRecord.get("apartmentID"));
+                Customer customer = customerService.findById(csvRecord.get(CONTRACTHEADER[0]));
+                Apartment apartment = apartmentService.findById(csvRecord.get(CONTRACTHEADER[1]));
                 Contract contract = Contract.builder()
                         .customerID(customer)
                         .apartmentID(apartment)
-                        .startDate(LocalDate.parse(csvRecord.get("startDate")))
-                        .endDate(LocalDate.parse(csvRecord.get("endDate")))
+                        .startDate(LocalDate.parse(csvRecord.get(CONTRACTHEADER[2])))
+                        .endDate(LocalDate.parse(csvRecord.get(CONTRACTHEADER[3])))
                         .build();
 
-
-                contractList.add(contract);
+                if(!contractService.duplicateCheck(contract, currContract))contractList.add(contract);
             }
 
             return contractList;

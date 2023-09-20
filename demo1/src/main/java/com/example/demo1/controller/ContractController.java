@@ -11,6 +11,7 @@ import com.example.demo1.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Contract")
+@RequestMapping("/api/contract")
 public class ContractController {
     @Autowired
     private ContractService contractService;
@@ -27,27 +28,65 @@ public class ContractController {
     private CustomerService customerService;
     @Autowired
     private ApartmentService apartmentService;
+
+    private List<Contract> listOfContract = null;
+    private StringBuilder message;
+    private int code;
+    private Object data;
+
+
     @GetMapping
-    public List<Contract> getContract(){
-        return contractService.getAllContract();
+
+    public ResponseEntity<ResponseMessage> getContract(){
+        try {
+            if(listOfContract == null) listOfContract = contractService.getAllContract();
+            message = new StringBuilder("Load Contract Data Succesfully");
+            code = 200;
+            data = listOfContract;
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message.toString(),code,data));
+        } catch (Exception e) {
+            message = new StringBuilder("Load Contract Data Failed");
+            code = 500;
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ResponseMessage(message.toString(),code,null));
+        }
     }
 
-    @PostMapping
-    public void addContract(String customerID, String apartmentID, String startDate, String endDate){
-        Customer customer = customerService.findById(customerID);
-        Apartment apartment = apartmentService.findById(apartmentID);
-        Contract contract = Contract.builder()
-                                    .customerID(customer)
-                                    .apartmentID(apartment)
-                                    .startDate(LocalDate.parse(startDate))
-                                    .endDate(LocalDate.parse(endDate))
-                                    .build();
-        contractService.Save(contract);
+    @PostMapping("/add")
+    public ResponseEntity<ResponseMessage> addContract( String customerID,
+                                                        String apartmentID,
+                                                       String startDate,
+                                                       String endDate){
+        try{
+            Customer customer = customerService.findById(customerID);
+            Apartment apartment = apartmentService.findById(apartmentID);
+            Contract contract = Contract.builder().
+                    customerID(customer)
+                    .apartmentID(apartment)
+                    .startDate(LocalDate.parse(startDate))
+                    .endDate(LocalDate.parse(endDate))
+                    .build();
+            contractService.Save(contractService.getAllContract(), contract);
+            message = new StringBuilder("Added Succesfully");
+            code = 201;
+            data = contract;
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new ResponseMessage(message.toString(),code,data));
+        }catch(Exception e){
+            System.out.printf(customerID);
+            System.out.printf(apartmentID);
+            System.out.printf(startDate);
+            System.out.printf(endDate);
+            message = new StringBuilder("Failed to Add");
+            code = 409;
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(new ResponseMessage(message.toString(),code,null));
+        }
     }
 
-    @PostMapping("/CSV")
+
+    @PostMapping("/csv")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("files") MultipartFile[] files) {
-            String message = "";
             int code;
             boolean CSVCheck = true;
             for(MultipartFile file : files) if(!CSVHelper.hasCSVFormat(file)){
@@ -56,31 +95,45 @@ public class ContractController {
             }
             if (CSVCheck) {
                 try {
-
-                    message = "Uploaded the file successfully: ";
+                    boolean formatter = false;
+                    message = new StringBuilder("Uploaded the file successfully: ");
                     for(MultipartFile file : files){
-                        apartmentService.save(file);
-                        message = message + " " + file.getOriginalFilename();
+                        contractService.save(file, contractService.getAllContract());
+                        if(formatter) message.append(", ").append(file.getOriginalFilename());
+                        else{
+                            message.append(file.getOriginalFilename());
+                            formatter = true;
+                        }
                     }
 
                     code = 200;
 
                     List<Contract> data = contractService.getAllContract();
 
-                    return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message, data, code));
+                    return ResponseEntity.status(HttpStatus.OK)
+                                         .body(new ResponseMessage(message.toString(), code, data));
                 } catch (Exception e) {
+                    boolean formatter = false;
+
+                    message = new StringBuilder("Could not upload the file: ");
+                    for(MultipartFile file : files){
+                        if(formatter) message.append(", ").append(file.getOriginalFilename());
+                        else{
+                            message.append(file.getOriginalFilename());
+                            formatter = true;
+                        }
+                    }
 
                     code = 409;
 
-                    message = "Could not upload the file: ";
-                    for(MultipartFile file : files) message = message + " " + file.getOriginalFilename();
-
-                    return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message, null, code));
+                    return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+                                         .body(new ResponseMessage(message.toString(), code, null));
                 }
             }
             code = 204;
-            message = "Please upload a csv file!";
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message, null, code));
+            message = new StringBuilder("Please upload a csv file!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                                 .body(new ResponseMessage(message.toString(), code, null));
 
     }
 }

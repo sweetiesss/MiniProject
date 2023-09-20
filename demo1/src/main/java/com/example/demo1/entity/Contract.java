@@ -1,8 +1,10 @@
 package com.example.demo1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDate;
 
@@ -21,10 +23,12 @@ public class Contract {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CustomerID")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Customer customerID;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ApartmentID")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Apartment apartmentID;
 
     @Column(name = "StartDate")

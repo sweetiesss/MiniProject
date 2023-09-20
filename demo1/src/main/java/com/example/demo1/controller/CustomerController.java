@@ -13,31 +13,64 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Customer")
+@RequestMapping("/api/customer")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+    private List<Customer> listOfCustomer = null;
+    private StringBuilder message;
+    private int code;
+    private Object data;
+
+
     @GetMapping
-    public List<Customer> getCustomer(){
-        return customerService.getAllCustomer();
+    public ResponseEntity<ResponseMessage> getCustomer(){
+        try {
+            if(listOfCustomer == null) listOfCustomer = customerService.getAllCustomer();
+            message = new StringBuilder("Load Customer Data Succesfully");
+            code = 200;
+            data = listOfCustomer;
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message.toString(),code,data));
+        } catch (Exception e) {
+            message = new StringBuilder("Load Customer Data Failed");
+            code = 500;
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ResponseMessage(message.toString(),code,null));
+        }
     }
 
     @PostMapping("/add")
-    public void addCustomer(String firstName, String lastName, String address, int age, String status){
-        Customer customer = Customer.builder()
-                .firstName(firstName)
-                .lastName(lastName)
-                .address(address)
-                .age(age)
-                .status(status)
-                .build();
-        customerService.save(customer);
+    @ResponseBody
+    public ResponseEntity<ResponseMessage> addCustomer(String firstName,
+                                                       String lastName,
+                                                       String address,
+                                                       int age,
+                                                       String status){
+        try{
+            Customer customer = Customer.builder()
+                    .firstName(firstName)
+                    .lastName(lastName)
+                    .address(address)
+                    .age(age)
+                    .status(status)
+                    .build();
+            customerService.save(customerService.getAllCustomer(), customer);
+            message = new StringBuilder("Added Succesfully");
+            code = 201;
+            data = customer;
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new ResponseMessage(message.toString(),code,data));
+        }catch(Exception e){
+            message = new StringBuilder("Failed to Add");
+            code = 409;
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(new ResponseMessage(message.toString(),code,null));
+        }
     }
 
 
-@PostMapping("/CSV")
+@PostMapping("/csv")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("files") MultipartFile[] files) {
-        String message = "";
         int code;
         boolean CSVCheck = true;
         for(MultipartFile file : files) if(!CSVHelper.hasCSVFormat(file)){
@@ -46,26 +79,41 @@ public class CustomerController {
         }
         if (CSVCheck) {
             try {
-                message = "Uploaded the file successfully: ";
+                boolean formatter = false;
+                message = new StringBuilder("Uploaded the file successfully: ");
                 for(MultipartFile file : files){
-                    customerService.save(file);
-                    message = message + " " + file.getOriginalFilename();
+                    customerService.save(file, customerService.getAllCustomer());
+                    if(formatter) message.append(", ").append(file.getOriginalFilename());
+                    else{
+                        message.append(file.getOriginalFilename());
+                        formatter = true;
+                    }
                 }
                 code = 200;
                 List<Customer> data = customerService.getAllCustomer();
 
-                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message,data,code));
+                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message.toString(),code,data));
             } catch (Exception e) {
+                boolean formatter = false;
+
+                message = new StringBuilder("Could not upload the file: ");
+                for(MultipartFile file : files){
+                    if(formatter) message.append(", ").append(file.getOriginalFilename());
+                    else{
+                        message.append(file.getOriginalFilename());
+                        formatter = true;
+                    }
+                }
+
                 code = 409;
 
-                message = "Could not upload the file: ";
-                for(MultipartFile file : files) message = message + " " + file.getOriginalFilename();
-
-                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message, null, code));
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+                        .body(new ResponseMessage(message.toString(), code, null));
             }
         }
-        code = 204;
-        message = "Please upload a csv file!";
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message, null, code));
+    code = 204;
+    message = new StringBuilder("Please upload a csv file!");
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            .body(new ResponseMessage(message.toString(), code, null));
     }
 }
