@@ -154,9 +154,8 @@ h1 {
 #keywords tbody tr td.lalign {
     text-align: left;
 }
-
-.button-1, .button-2, .button-3 {
-    background-color: #EA4C89;
+.button-1, .button-2{
+    background-color: #ffc0cb;
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
@@ -174,24 +173,78 @@ h1 {
     padding: 10px 16px;
     position: relative;
     text-align: center;
-    text-decoration: none;
     transition: color 100ms;
     vertical-align: baseline;
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
 }
 
-.button-1, .button-2, .button-3:hover,
-.button-1:focus {
-    background-color: #F082AC;
+.button-3, .button-4, .button-5{
+    background-color: #8ed7c1;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    transition: color 100ms;
+    vertical-align: baseline;
+    touch-action: manipulation;
 }
 
+.button-1, .button-2, .button-3, .button-4, .button-5:hover,
+
+.button-1, .button-2:focus {
+    background-color: #ffc0cb ;
+}
+
+.button-3, .button-4, .button-5:focus{
+    background-color: #8ed7c1 ;
+}
 .button-container {
     display: flex; /* Use flexbox layout */
+    justify-content: center;
 }
 
-.button-container .button-link {
+.button-container{
     flex: 1; /* Distribute the width equally among the buttons */
-    margin-right: 10px; /* Add right margin between the buttons */
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.button-row .button-link {
+    flex: 1;
+}
+
+.button-1, .button-2 {
+    width: 245px;
+    margin: 0 10px;
+}
+
+.button-container:first-child {
+    margin-bottom: 20px; /* remove spacing after the last button row */
+}
+
+.button-container:last-child{
+    margin-top: 20px;
+}
+
+.button-container > .button-link {
+    margin: 0 10px; /* add some spacing between the buttons */
 }
