@@ -24,11 +24,13 @@ public class Contract {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CustomerID")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @Nullable
     private Customer customerID;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ApartmentID")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @Nullable
     private Apartment apartmentID;
 
     @Column(name = "StartDate")

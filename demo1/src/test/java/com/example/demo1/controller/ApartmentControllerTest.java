@@ -1,6 +1,9 @@
 package com.example.demo1.controller;
 
 import com.example.demo1.entity.Apartment;
+import com.example.demo1.repository.ApartmentRepository;
+import com.example.demo1.repository.ContractRepository;
+import com.example.demo1.repository.CustomerRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,62 +15,83 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
+import static org.hamcrest.CoreMatchers.is;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willDoNothing;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
 class ApartmentControllerTest {
 
     @Autowired
-    ApartmentController apartmentController;
+    ApartmentRepository apartmentRepository;
+    @Autowired
+    CustomerRepository customerRepository;
+    @Autowired
+    ContractRepository contractRepository;
+    @Autowired
+    private MockMvc mockMvc;
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Test
-    void abc(){
-        assertEquals(2, 2);
+    @BeforeEach
+    void setup(){
+        contractRepository.deleteAll();
+        apartmentRepository.deleteAll();
+        customerRepository.deleteAll();
     }
 
-//    @Test
-//    void getApartmentAPITest() throws Exception{
-//        Apartment apartment = Apartment.builder()
-//                .address("address")
-//                .retalPrice("retalPrice")
-//                .numberOfRoom(123)
-//                .build();
-//
-////        mockMvc.perform(post("/api/tutorials").contentType(MediaType.APPLICATION_JSON)
-////                        .content(objectMapper.writeValueAsString()))
-////                .andExpect(status().isCreated())
-////                .andDo(print());
-//    }
+
+
+    @Test
+    public void givenEmployeeObject_whenCreateEmployee_thenReturnSavedEmployee() throws Exception{
+
+        // given - precondition or setup
+        Apartment apartment = Apartment.builder()
+                .address("D1, Java street")
+                .retalPrice("123123")
+                .numberOfRoom(123)
+                .build();
+
+        // when - action or behaviour that we are going test
+        ResultActions response = mockMvc.perform(post("/api/apartment/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(apartment)));
+
+        // then - verify the result or output using assert statements
+        response.andDo(print()).
+                andExpect(status().isCreated())
+                .andExpect(jsonPath("$.address",
+                        is(apartment.getAddress())))
+                .andExpect(jsonPath("$.retalPrice",
+                        is(apartment.getRetalPrice())))
+                .andExpect(jsonPath("$.numberOfRoom",
+                        is(apartment.getNumberOfRoom())));
+
+    }
+
+
 }
