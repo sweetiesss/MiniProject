@@ -4,6 +4,8 @@ import com.example.demo1.entity.Customer;
 import com.example.demo1.helper.CSVHelper;
 import com.example.demo1.message.ResponseMessage;
 import com.example.demo1.service.CustomerService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerController {
+
+
+    private static final Logger logger = LogManager.getLogger("log4j2Logger");
+
     @Autowired
     private CustomerService customerService;
     private List<Customer> listOfCustomer = null;
@@ -25,13 +31,18 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<ResponseMessage> getCustomer(){
+
         try {
+            logger.info("getting a List of all Customer");
             if(listOfCustomer == null) listOfCustomer = customerService.getAllCustomer();
-            message = new StringBuilder("Load Customer Data Succesfully");
+            logger.info("Load Customer Data Successfully");
+            message = new StringBuilder("Load Customer Data Successfully");
             code = 200;
             data = listOfCustomer;
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message.toString(),code,data));
         } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.error("Load Customer Data failed");
             message = new StringBuilder("Load Customer Data Failed");
             code = 500;
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -46,6 +57,7 @@ public class CustomerController {
                                                        String address,
                                                        int age,
                                                        String status){
+        logger.info("Attempting to add a Customer");
         try{
             Customer customer = Customer.builder()
                     .firstName(firstName)
@@ -54,6 +66,7 @@ public class CustomerController {
                     .age(age)
                     .status(status)
                     .build();
+            logger.info("Successfully build a new Customer Object");
             customerService.save(customerService.getAllCustomer(), customer);
             message = new StringBuilder("Added Succesfully");
             code = 201;
@@ -61,6 +74,8 @@ public class CustomerController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(new ResponseMessage(message.toString(),code,data));
         }catch(Exception e){
+            logger.error(e.getMessage());
+            logger.error("Fail to add");
             message = new StringBuilder("Failed to Add");
             code = 409;
             return ResponseEntity.status(HttpStatus.CONFLICT)
@@ -73,14 +88,18 @@ public class CustomerController {
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("files") MultipartFile[] files) {
         int code;
         boolean CSVCheck = true;
+        logger.info("Checking all files...");
         for(MultipartFile file : files) if(!CSVHelper.hasCSVFormat(file)){
             CSVCheck = false;
             break;
         }
+        logger.info("All files checked!");
         if (CSVCheck) {
+            logger.info("All files have the right format");
             try {
                 boolean formatter = false;
                 message = new StringBuilder("Uploaded the file successfully: ");
+                logger.info("Uploading...");
                 for(MultipartFile file : files){
                     customerService.save(file, customerService.getAllCustomer());
                     if(formatter) message.append(", ").append(file.getOriginalFilename());
@@ -89,11 +108,14 @@ public class CustomerController {
                         formatter = true;
                     }
                 }
+                logger.info("All files upload successfully!");
                 code = 200;
                 List<Customer> data = customerService.getAllCustomer();
 
                 return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message.toString(),code,data));
             } catch (Exception e) {
+                logger.error(e.getMessage());
+                logger.error("Upload failed");
                 boolean formatter = false;
 
                 message = new StringBuilder("Could not upload the file: ");
@@ -111,9 +133,11 @@ public class CustomerController {
                         .body(new ResponseMessage(message.toString(), code, null));
             }
         }
+    logger.info("Non-csv file detected!");
+    logger.info("Please upload only csv file.");
     code = 204;
     message = new StringBuilder("Please upload a csv file!");
     return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-            .body(new ResponseMessage(message.toString(), code, null));
+                         .body(new ResponseMessage(message.toString(), code, null));
     }
 }
