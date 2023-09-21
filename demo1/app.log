@@ -1,0 +1,34 @@
+2023-09-21 14:19:35,476 INFO log4j2Logger [http-nio-8080-exec-1] getting a List of all Apartments
+2023-09-21 14:19:35,653 INFO log4j2Logger [http-nio-8080-exec-1] Apartment List loaded successfully!
+2023-09-21 14:20:24,347 INFO log4j2Logger [main] Attempting to add an Apartment
+2023-09-21 14:20:24,355 INFO log4j2Logger [main] Successfully build a new Apartment Object
+2023-09-21 14:20:24,373 INFO log4j2Logger [main] No duplicate Apartment found!
+2023-09-21 14:20:24,373 INFO log4j2Logger [main] Saving...
+2023-09-21 14:20:24,415 INFO log4j2Logger [main] Successfully added a new Apartment
+2023-09-21 14:21:04,962 INFO log4j2Logger [main] Attempting to add an Apartment
+2023-09-21 14:21:04,975 INFO log4j2Logger [main] Successfully build a new Apartment Object
+2023-09-21 14:21:05,001 INFO log4j2Logger [main] No duplicate Apartment found!
+2023-09-21 14:21:05,002 INFO log4j2Logger [main] Saving...
+2023-09-21 14:21:05,062 INFO log4j2Logger [main] Successfully added a new Apartment
+2023-09-21 14:21:20,366 INFO log4j2Logger [main] Attempting to add an Apartment
+2023-09-21 14:21:20,374 INFO log4j2Logger [main] Successfully build a new Apartment Object
+2023-09-21 14:21:20,400 INFO log4j2Logger [main] No duplicate Apartment found!
+2023-09-21 14:21:20,400 INFO log4j2Logger [main] Saving...
+2023-09-21 14:21:20,439 INFO log4j2Logger [main] Successfully added a new Apartment
+2023-09-21 14:22:50,225 INFO log4j2Logger [main] Attempting to add an Apartment
+2023-09-21 14:22:50,231 INFO log4j2Logger [main] Successfully build a new Apartment Object
+2023-09-21 14:22:50,424 INFO log4j2Logger [main] Duplicate Apartment found!
+2023-09-21 14:22:50,424 INFO log4j2Logger [main] Save process terminated!!
+2023-09-21 14:24:07,511 INFO log4j2Logger [main] Attempting to add an Apartment
+2023-09-21 14:24:07,520 INFO log4j2Logger [main] Successfully build a new Apartment Object
+2023-09-21 14:24:07,744 INFO log4j2Logger [main] No duplicate Apartment found!
+2023-09-21 14:24:07,744 INFO log4j2Logger [main] Saving...
+2023-09-21 14:24:07,816 INFO log4j2Logger [main] Successfully added a new Apartment
+2023-09-21 14:24:56,990 INFO log4j2Logger [main] Attempting to add an Apartment
+2023-09-21 14:24:56,997 INFO log4j2Logger [main] Successfully build a new Apartment Object
+2023-09-21 14:24:57,183 INFO log4j2Logger [main] Duplicate Apartment found!
+2023-09-21 14:24:57,183 INFO log4j2Logger [main] Save process terminated!!
+2023-09-21 14:29:46,162 INFO log4j2Logger [http-nio-8080-exec-1] getting a List of all Contract
+2023-09-21 14:29:46,385 INFO log4j2Logger [http-nio-8080-exec-1] Contract List loaded successfully!
+2023-09-21 14:29:51,686 INFO log4j2Logger [http-nio-8080-exec-3] getting a List of all Apartments
+2023-09-21 14:29:51,719 INFO log4j2Logger [http-nio-8080-exec-3] Apartment List loaded successfully!
