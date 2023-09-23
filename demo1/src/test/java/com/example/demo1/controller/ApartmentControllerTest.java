@@ -57,12 +57,12 @@ class ApartmentControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @BeforeEach
-    void setup(){
-        contractRepository.deleteAll();
-        apartmentRepository.deleteAll();
-        customerRepository.deleteAll();
-    }
+//    @BeforeEach
+//    void setup(){
+//        contractRepository.deleteAll();
+//        apartmentRepository.deleteAll();
+//        customerRepository.deleteAll();
+//    }
 
 
 
@@ -77,18 +77,18 @@ class ApartmentControllerTest {
                 .build();
 
         // when - action or behaviour that we are going test
-        ResultActions response = mockMvc.perform(post("/api/apartment/add")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(apartment)));
+        ResultActions response = mockMvc.perform(post("/api/apartment/add"));
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(objectMapper.writeValueAsString(apartment)));
 
         // then - verify the result or output using assert statements
         response.andDo(print()).
                 andExpect(status().isCreated())
-                .andExpect(jsonPath("$.address",
+                .andExpect(jsonPath("$.data.address",
                         is(apartment.getAddress())))
-                .andExpect(jsonPath("$.retalPrice",
+                .andExpect(jsonPath("$.data.retalPrice",
                         is(apartment.getRetalPrice())))
-                .andExpect(jsonPath("$.numberOfRoom",
+                .andExpect(jsonPath("$.data.numberOfRoom",
                         is(apartment.getNumberOfRoom())));
 
     }

@@ -50,7 +50,7 @@ public class ApartmentService {
         return apartmentRepository.findById(apartmentID).orElse(null);
     }
 
-    public boolean duplicateCheck(Apartment apartment, List<Apartment> currApartment){
+    public static boolean duplicateCheck(Apartment apartment, List<Apartment> currApartment){
         boolean dup = false;
 
         String address = apartment.getAddress();
