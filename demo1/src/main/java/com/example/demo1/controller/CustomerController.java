@@ -60,12 +60,12 @@ public class CustomerController {
         logger.info("Attempting to add a Customer");
         try{
             Customer customer = Customer.builder()
-                    .firstName(firstName)
-                    .lastName(lastName)
-                    .address(address)
-                    .age(age)
-                    .status(status)
-                    .build();
+                                        .firstName(firstName)
+                                        .lastName(lastName)
+                                        .address(address)
+                                        .age(age)
+                                        .status(status)
+                                        .build();
             logger.info("Successfully build a new Customer Object");
             customerService.save(customerService.getAllCustomer(), customer);
             message = new StringBuilder("Added Succesfully");

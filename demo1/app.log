@@ -1,34 +1,262 @@
-2023-09-21 14:19:35,476 INFO log4j2Logger [http-nio-8080-exec-1] getting a List of all Apartments
-2023-09-21 14:19:35,653 INFO log4j2Logger [http-nio-8080-exec-1] Apartment List loaded successfully!
-2023-09-21 14:20:24,347 INFO log4j2Logger [main] Attempting to add an Apartment
-2023-09-21 14:20:24,355 INFO log4j2Logger [main] Successfully build a new Apartment Object
-2023-09-21 14:20:24,373 INFO log4j2Logger [main] No duplicate Apartment found!
-2023-09-21 14:20:24,373 INFO log4j2Logger [main] Saving...
-2023-09-21 14:20:24,415 INFO log4j2Logger [main] Successfully added a new Apartment
-2023-09-21 14:21:04,962 INFO log4j2Logger [main] Attempting to add an Apartment
-2023-09-21 14:21:04,975 INFO log4j2Logger [main] Successfully build a new Apartment Object
-2023-09-21 14:21:05,001 INFO log4j2Logger [main] No duplicate Apartment found!
-2023-09-21 14:21:05,002 INFO log4j2Logger [main] Saving...
-2023-09-21 14:21:05,062 INFO log4j2Logger [main] Successfully added a new Apartment
-2023-09-21 14:21:20,366 INFO log4j2Logger [main] Attempting to add an Apartment
-2023-09-21 14:21:20,374 INFO log4j2Logger [main] Successfully build a new Apartment Object
-2023-09-21 14:21:20,400 INFO log4j2Logger [main] No duplicate Apartment found!
-2023-09-21 14:21:20,400 INFO log4j2Logger [main] Saving...
-2023-09-21 14:21:20,439 INFO log4j2Logger [main] Successfully added a new Apartment
-2023-09-21 14:22:50,225 INFO log4j2Logger [main] Attempting to add an Apartment
-2023-09-21 14:22:50,231 INFO log4j2Logger [main] Successfully build a new Apartment Object
-2023-09-21 14:22:50,424 INFO log4j2Logger [main] Duplicate Apartment found!
-2023-09-21 14:22:50,424 INFO log4j2Logger [main] Save process terminated!!
-2023-09-21 14:24:07,511 INFO log4j2Logger [main] Attempting to add an Apartment
-2023-09-21 14:24:07,520 INFO log4j2Logger [main] Successfully build a new Apartment Object
-2023-09-21 14:24:07,744 INFO log4j2Logger [main] No duplicate Apartment found!
-2023-09-21 14:24:07,744 INFO log4j2Logger [main] Saving...
-2023-09-21 14:24:07,816 INFO log4j2Logger [main] Successfully added a new Apartment
-2023-09-21 14:24:56,990 INFO log4j2Logger [main] Attempting to add an Apartment
-2023-09-21 14:24:56,997 INFO log4j2Logger [main] Successfully build a new Apartment Object
-2023-09-21 14:24:57,183 INFO log4j2Logger [main] Duplicate Apartment found!
-2023-09-21 14:24:57,183 INFO log4j2Logger [main] Save process terminated!!
-2023-09-21 14:29:46,162 INFO log4j2Logger [http-nio-8080-exec-1] getting a List of all Contract
-2023-09-21 14:29:46,385 INFO log4j2Logger [http-nio-8080-exec-1] Contract List loaded successfully!
-2023-09-21 14:29:51,686 INFO log4j2Logger [http-nio-8080-exec-3] getting a List of all Apartments
-2023-09-21 14:29:51,719 INFO log4j2Logger [http-nio-8080-exec-3] Apartment List loaded successfully!
+2023-09-23 21:06:24,778 INFO c.e.d.Demo1Application [restartedMain] Starting Demo1Application using Java 17.0.8.1 with PID 19416 (C:\Users\baolh\IdeaProjects\demo1\target\classes started by baolh in C:\Users\baolh\IdeaProjects\demo1)
+2023-09-23 21:06:24,791 INFO c.e.d.Demo1Application [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-09-23 21:06:24,859 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-23 21:06:24,859 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-23 21:06:25,859 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 21:06:25,936 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 65 ms. Found 3 JPA repository interfaces.
+2023-09-23 21:06:26,811 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2023-09-23 21:06:26,830 INFO o.a.c.h.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:06:26,833 INFO o.a.c.c.StandardService [restartedMain] Starting service [Tomcat]
+2023-09-23 21:06:26,834 INFO o.a.c.c.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-23 21:06:26,928 INFO o.a.c.c.C.[.[.[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-09-23 21:06:26,929 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2067 ms
+2023-09-23 21:06:27,239 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 21:06:27,371 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-09-23 21:06:27,375 INFO o.h.c.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-09-23 21:06:27,614 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:06:27,821 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-23 21:06:27,844 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-09-23 21:06:28,426 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a9ed9d2
+2023-09-23 21:06:28,428 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-09-23 21:06:29,016 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:06:29,976 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 21:06:30,092 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:06:30,478 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 21:06:30,859 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-09-23 21:06:30,886 INFO o.a.c.h.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:06:30,910 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 21:06:30,920 INFO c.e.d.Demo1Application [restartedMain] Started Demo1Application in 6.638 seconds (process running for 8.257)
+2023-09-23 21:07:57,563 INFO o.a.c.c.C.[.[.[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 21:07:57,563 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-23 21:07:57,567 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 4 ms
+2023-09-23 21:07:57,647 INFO log4j2Logger [http-nio-8080-exec-1] Checking all files...
+2023-09-23 21:07:57,648 INFO log4j2Logger [http-nio-8080-exec-1] All files checked!
+2023-09-23 21:07:57,649 INFO log4j2Logger [http-nio-8080-exec-1] Non-csv file detected!
+2023-09-23 21:07:57,649 INFO log4j2Logger [http-nio-8080-exec-1] Please upload only csv file.
+2023-09-23 21:08:04,158 INFO log4j2Logger [http-nio-8080-exec-4] Checking all files...
+2023-09-23 21:08:04,158 INFO log4j2Logger [http-nio-8080-exec-4] All files checked!
+2023-09-23 21:08:04,158 INFO log4j2Logger [http-nio-8080-exec-4] Non-csv file detected!
+2023-09-23 21:08:04,158 INFO log4j2Logger [http-nio-8080-exec-4] Please upload only csv file.
+2023-09-23 21:08:23,495 INFO log4j2Logger [http-nio-8080-exec-6] Checking all files...
+2023-09-23 21:08:23,495 INFO log4j2Logger [http-nio-8080-exec-6] All files checked!
+2023-09-23 21:08:23,495 INFO log4j2Logger [http-nio-8080-exec-6] All files have the right format
+2023-09-23 21:08:23,496 INFO log4j2Logger [http-nio-8080-exec-6] Uploading...
+2023-09-23 21:08:23,711 ERROR log4j2Logger [http-nio-8080-exec-6] Cannot invoke "com.example.demo1.service.ApartmentService.duplicateCheck(com.example.demo1.entity.Apartment, java.util.List)" because "com.example.demo1.helper.CSVHelper.apartmentService" is null
+2023-09-23 21:08:23,711 ERROR log4j2Logger [http-nio-8080-exec-6] Upload failed
+2023-09-23 21:08:50,928 INFO log4j2Logger [http-nio-8080-exec-7] Checking all files...
+2023-09-23 21:08:50,928 INFO log4j2Logger [http-nio-8080-exec-7] All files checked!
+2023-09-23 21:08:50,928 INFO log4j2Logger [http-nio-8080-exec-7] All files have the right format
+2023-09-23 21:08:50,929 INFO log4j2Logger [http-nio-8080-exec-7] Uploading...
+2023-09-23 21:08:50,946 ERROR log4j2Logger [http-nio-8080-exec-7] Cannot invoke "com.example.demo1.service.ApartmentService.duplicateCheck(com.example.demo1.entity.Apartment, java.util.List)" because "com.example.demo1.helper.CSVHelper.apartmentService" is null
+2023-09-23 21:08:50,946 ERROR log4j2Logger [http-nio-8080-exec-7] Upload failed
+2023-09-23 21:09:30,973 INFO log4j2Logger [http-nio-8080-exec-8] getting a List of all Apartments
+2023-09-23 21:09:30,987 INFO log4j2Logger [http-nio-8080-exec-8] Apartment List loaded successfully!
+2023-09-23 21:09:32,675 INFO log4j2Logger [http-nio-8080-exec-9] Checking all files...
+2023-09-23 21:09:32,675 INFO log4j2Logger [http-nio-8080-exec-9] All files checked!
+2023-09-23 21:09:32,675 INFO log4j2Logger [http-nio-8080-exec-9] Non-csv file detected!
+2023-09-23 21:09:32,676 INFO log4j2Logger [http-nio-8080-exec-9] Please upload only csv file.
+2023-09-23 21:09:37,626 INFO log4j2Logger [http-nio-8080-exec-2] Checking all files...
+2023-09-23 21:09:37,627 INFO log4j2Logger [http-nio-8080-exec-2] All files checked!
+2023-09-23 21:09:37,627 INFO log4j2Logger [http-nio-8080-exec-2] All files have the right format
+2023-09-23 21:09:37,627 INFO log4j2Logger [http-nio-8080-exec-2] Uploading...
+2023-09-23 21:09:37,644 ERROR log4j2Logger [http-nio-8080-exec-2] Cannot invoke "com.example.demo1.service.ApartmentService.duplicateCheck(com.example.demo1.entity.Apartment, java.util.List)" because "com.example.demo1.helper.CSVHelper.apartmentService" is null
+2023-09-23 21:09:37,644 ERROR log4j2Logger [http-nio-8080-exec-2] Upload failed
+2023-09-23 21:09:57,275 INFO log4j2Logger [http-nio-8080-exec-1] Attempting to add an Apartment
+2023-09-23 21:09:57,276 INFO log4j2Logger [http-nio-8080-exec-1] Successfully build a new Apartment Object
+2023-09-23 21:09:57,292 INFO log4j2Logger [http-nio-8080-exec-1] Duplicate Apartment found!
+2023-09-23 21:09:57,293 INFO log4j2Logger [http-nio-8080-exec-1] Save process terminated!!
+2023-09-23 21:10:42,807 INFO log4j2Logger [http-nio-8080-exec-3] Checking all files...
+2023-09-23 21:10:42,808 INFO log4j2Logger [http-nio-8080-exec-3] All files checked!
+2023-09-23 21:10:42,808 INFO log4j2Logger [http-nio-8080-exec-3] All files have the right format
+2023-09-23 21:10:42,809 INFO log4j2Logger [http-nio-8080-exec-3] Uploading...
+2023-09-23 21:10:42,829 ERROR log4j2Logger [http-nio-8080-exec-3] Cannot invoke "com.example.demo1.service.ApartmentService.duplicateCheck(com.example.demo1.entity.Apartment, java.util.List)" because "com.example.demo1.helper.CSVHelper.apartmentService" is null
+2023-09-23 21:10:42,829 ERROR log4j2Logger [http-nio-8080-exec-3] Upload failed
+2023-09-23 21:13:05,168 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:13:05,172 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-23 21:13:05,199 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-23 21:13:11,723 INFO c.e.d.Demo1Application [restartedMain] Starting Demo1Application using Java 17.0.8.1 with PID 7728 (C:\Users\baolh\IdeaProjects\demo1\target\classes started by baolh in C:\Users\baolh\IdeaProjects\demo1)
+2023-09-23 21:13:11,733 INFO c.e.d.Demo1Application [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-09-23 21:13:11,784 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-23 21:13:11,784 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-23 21:13:12,492 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 21:13:12,563 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 61 ms. Found 3 JPA repository interfaces.
+2023-09-23 21:13:13,198 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2023-09-23 21:13:13,208 INFO o.a.c.h.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:13:13,210 INFO o.a.c.c.StandardService [restartedMain] Starting service [Tomcat]
+2023-09-23 21:13:13,211 INFO o.a.c.c.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-23 21:13:13,276 INFO o.a.c.c.C.[.[.[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-09-23 21:13:13,277 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1491 ms
+2023-09-23 21:13:13,488 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 21:13:13,557 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-09-23 21:13:13,560 INFO o.h.c.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-09-23 21:13:13,746 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:13:13,902 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-23 21:13:13,923 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-09-23 21:13:14,256 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@483bc037
+2023-09-23 21:13:14,259 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-09-23 21:13:14,621 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:13:15,462 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 21:13:15,601 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:13:15,983 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 21:13:16,338 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-09-23 21:13:16,363 INFO o.a.c.h.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:13:16,385 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 21:13:16,394 INFO c.e.d.Demo1Application [restartedMain] Started Demo1Application in 5.141 seconds (process running for 6.542)
+2023-09-23 21:15:04,609 INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [File Watcher] Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-09-23 21:15:04,648 INFO o.a.c.h.Http11NioProtocol [Thread-5] Pausing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:15:04,649 INFO o.a.c.c.StandardService [Thread-5] Stopping service [Tomcat]
+2023-09-23 21:15:04,664 INFO o.a.c.h.Http11NioProtocol [Thread-5] Stopping ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:15:04,667 INFO o.a.c.h.Http11NioProtocol [Thread-5] Destroying ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:15:04,673 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [Thread-5] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:15:04,679 INFO c.z.h.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2023-09-23 21:15:04,713 INFO c.z.h.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
+2023-09-23 21:15:04,897 INFO c.e.d.Demo1Application [restartedMain] Starting Demo1Application using Java 17.0.8.1 with PID 7728 (C:\Users\baolh\IdeaProjects\demo1\target\classes started by baolh in C:\Users\baolh\IdeaProjects\demo1)
+2023-09-23 21:15:04,899 INFO c.e.d.Demo1Application [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-09-23 21:15:05,316 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 21:15:05,343 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
+2023-09-23 21:15:05,448 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2023-09-23 21:15:05,449 INFO o.a.c.h.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:15:05,449 INFO o.a.c.c.StandardService [restartedMain] Starting service [Tomcat]
+2023-09-23 21:15:05,449 INFO o.a.c.c.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-23 21:15:05,473 INFO o.a.c.c.C.[.[.[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-09-23 21:15:05,474 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 563 ms
+2023-09-23 21:15:05,551 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 21:15:05,561 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:15:05,562 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-23 21:15:05,563 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2023-09-23 21:15:05,599 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56d86960
+2023-09-23 21:15:05,599 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2023-09-23 21:15:05,619 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:15:05,674 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 21:15:05,712 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:15:05,900 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 21:15:06,064 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-09-23 21:15:06,081 INFO o.a.c.h.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:15:06,086 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 21:15:06,094 INFO c.e.d.Demo1Application [restartedMain] Started Demo1Application in 1.313 seconds (process running for 116.242)
+2023-09-23 21:15:06,101 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2023-09-23 21:15:44,199 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:15:44,199 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-2 - Shutdown initiated...
+2023-09-23 21:15:44,218 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-2 - Shutdown completed.
+2023-09-23 21:17:05,067 INFO c.e.d.Demo1Application [restartedMain] Starting Demo1Application using Java 17.0.8.1 with PID 13432 (C:\Users\baolh\IdeaProjects\demo1\target\classes started by baolh in C:\Users\baolh\IdeaProjects\demo1)
+2023-09-23 21:17:05,077 INFO c.e.d.Demo1Application [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-09-23 21:17:05,127 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-23 21:17:05,127 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-23 21:17:05,813 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 21:17:05,883 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 57 ms. Found 3 JPA repository interfaces.
+2023-09-23 21:17:06,447 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2023-09-23 21:17:06,455 INFO o.a.c.h.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:17:06,457 INFO o.a.c.c.StandardService [restartedMain] Starting service [Tomcat]
+2023-09-23 21:17:06,458 INFO o.a.c.c.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-23 21:17:06,526 INFO o.a.c.c.C.[.[.[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-09-23 21:17:06,526 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1398 ms
+2023-09-23 21:17:06,717 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 21:17:06,790 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-09-23 21:17:06,792 INFO o.h.c.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-09-23 21:17:06,949 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:17:07,101 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-23 21:17:07,119 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-09-23 21:17:07,451 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@442ff6f2
+2023-09-23 21:17:07,453 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-09-23 21:17:07,795 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:17:08,510 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 21:17:08,600 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:17:08,957 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 21:17:09,297 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-09-23 21:17:09,316 INFO o.a.c.h.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:17:09,335 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 21:17:09,343 INFO c.e.d.Demo1Application [restartedMain] Started Demo1Application in 4.681 seconds (process running for 5.763)
+2023-09-23 21:17:15,156 INFO o.a.c.c.C.[.[.[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 21:17:15,156 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-23 21:17:15,158 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-09-23 21:17:15,241 INFO log4j2Logger [http-nio-8080-exec-1] Checking all files...
+2023-09-23 21:17:15,244 INFO log4j2Logger [http-nio-8080-exec-1] All files checked!
+2023-09-23 21:17:15,244 INFO log4j2Logger [http-nio-8080-exec-1] All files have the right format
+2023-09-23 21:17:15,244 INFO log4j2Logger [http-nio-8080-exec-1] Uploading...
+2023-09-23 21:17:15,473 ERROR log4j2Logger [http-nio-8080-exec-1] Cannot invoke "com.example.demo1.service.ApartmentService.duplicateCheck(com.example.demo1.entity.Apartment, java.util.List)" because "com.example.demo1.helper.CSVHelper.apartmentService" is null
+2023-09-23 21:17:15,473 ERROR log4j2Logger [http-nio-8080-exec-1] Upload failed
+2023-09-23 21:18:10,903 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:18:10,907 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-23 21:18:10,935 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-23 21:18:48,219 INFO c.e.d.Demo1Application [restartedMain] Starting Demo1Application using Java 17.0.8.1 with PID 16824 (C:\Users\baolh\IdeaProjects\demo1\target\classes started by baolh in C:\Users\baolh\IdeaProjects\demo1)
+2023-09-23 21:18:48,228 INFO c.e.d.Demo1Application [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-09-23 21:18:48,279 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-23 21:18:48,280 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-23 21:18:49,043 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 21:18:49,110 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 56 ms. Found 3 JPA repository interfaces.
+2023-09-23 21:18:49,721 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2023-09-23 21:18:49,732 INFO o.a.c.h.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:18:49,736 INFO o.a.c.c.StandardService [restartedMain] Starting service [Tomcat]
+2023-09-23 21:18:49,737 INFO o.a.c.c.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-23 21:18:49,805 INFO o.a.c.c.C.[.[.[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-09-23 21:18:49,805 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1524 ms
+2023-09-23 21:18:50,005 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 21:18:50,115 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-09-23 21:18:50,118 INFO o.h.c.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-09-23 21:18:50,372 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:18:50,529 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-23 21:18:50,549 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-09-23 21:18:50,919 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@483bc037
+2023-09-23 21:18:50,921 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-09-23 21:18:51,285 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:18:52,109 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 21:18:52,216 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:18:52,562 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 21:18:52,941 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-09-23 21:18:52,958 INFO o.a.c.h.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:18:52,976 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 21:18:52,984 INFO c.e.d.Demo1Application [restartedMain] Started Demo1Application in 5.174 seconds (process running for 6.317)
+2023-09-23 21:18:56,432 INFO o.a.c.c.C.[.[.[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 21:18:56,432 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2023-09-23 21:18:56,434 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2023-09-23 21:18:56,500 INFO log4j2Logger [http-nio-8080-exec-2] Checking all files...
+2023-09-23 21:18:56,501 INFO log4j2Logger [http-nio-8080-exec-2] All files checked!
+2023-09-23 21:18:56,501 INFO log4j2Logger [http-nio-8080-exec-2] All files have the right format
+2023-09-23 21:18:56,501 INFO log4j2Logger [http-nio-8080-exec-2] Uploading...
+2023-09-23 21:18:56,718 INFO log4j2Logger [http-nio-8080-exec-2] File: testCustomer.csv upload successfully
+2023-09-23 21:18:56,796 INFO log4j2Logger [http-nio-8080-exec-2] All files upload successfully!
+2023-09-23 21:19:11,286 INFO log4j2Logger [http-nio-8080-exec-3] getting a List of all Apartments
+2023-09-23 21:19:11,308 INFO log4j2Logger [http-nio-8080-exec-3] Apartment List loaded successfully!
+2023-09-23 21:19:45,338 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:19:45,341 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-23 21:19:45,365 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-09-23 21:19:50,429 INFO c.e.d.Demo1Application [restartedMain] Starting Demo1Application using Java 17.0.8.1 with PID 15892 (C:\Users\baolh\IdeaProjects\demo1\target\classes started by baolh in C:\Users\baolh\IdeaProjects\demo1)
+2023-09-23 21:19:50,442 INFO c.e.d.Demo1Application [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-09-23 21:19:50,496 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-23 21:19:50,497 INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-23 21:19:51,168 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-23 21:19:51,237 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 59 ms. Found 3 JPA repository interfaces.
+2023-09-23 21:19:51,829 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2023-09-23 21:19:51,838 INFO o.a.c.h.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:19:51,840 INFO o.a.c.c.StandardService [restartedMain] Starting service [Tomcat]
+2023-09-23 21:19:51,841 INFO o.a.c.c.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-09-23 21:19:51,904 INFO o.a.c.c.C.[.[.[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-09-23 21:19:51,905 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1406 ms
+2023-09-23 21:19:52,089 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-23 21:19:52,147 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-09-23 21:19:52,149 INFO o.h.c.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-09-23 21:19:52,303 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:19:52,461 INFO o.s.o.j.p.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-23 21:19:52,479 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-09-23 21:19:52,808 INFO c.z.h.p.HikariPool [restartedMain] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b7cbd76
+2023-09-23 21:19:52,810 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-09-23 21:19:53,174 INFO o.h.b.i.BytecodeProviderInitiator [restartedMain] HHH000021: Bytecode provider name : bytebuddy
+2023-09-23 21:19:53,906 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-23 21:19:53,994 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:19:54,369 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-23 21:19:54,742 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-09-23 21:19:54,765 INFO o.a.c.h.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-23 21:19:54,788 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-23 21:19:54,800 INFO c.e.d.Demo1Application [restartedMain] Started Demo1Application in 4.773 seconds (process running for 5.991)
+2023-09-23 21:20:01,473 INFO o.a.c.c.C.[.[.[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-23 21:20:01,474 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-09-23 21:20:01,476 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2023-09-23 21:20:01,545 INFO log4j2Logger [http-nio-8080-exec-1] Checking all files...
+2023-09-23 21:20:01,546 INFO log4j2Logger [http-nio-8080-exec-1] All files checked!
+2023-09-23 21:20:01,547 INFO log4j2Logger [http-nio-8080-exec-1] All files have the right format
+2023-09-23 21:20:01,547 INFO log4j2Logger [http-nio-8080-exec-1] Uploading...
+2023-09-23 21:20:01,782 INFO log4j2Logger [http-nio-8080-exec-1] File: testCustomer.csv upload successfully
+2023-09-23 21:20:01,799 INFO log4j2Logger [http-nio-8080-exec-1] All files upload successfully!
+2023-09-23 21:20:03,603 INFO o.s.o.j.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-23 21:20:03,606 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-09-23 21:20:03,630 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

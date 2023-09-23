@@ -52,7 +52,7 @@ public class CustomerService {
         return customerReposiroty.findById(customerID).orElse(null);
     }
 
-    public boolean duplicateCheck(Customer customer, List<Customer> currCustomer){
+    public static boolean duplicateCheck(Customer customer, List<Customer> currCustomer){
         boolean dup = false;
 
         String firstName = customer.getFirstName();

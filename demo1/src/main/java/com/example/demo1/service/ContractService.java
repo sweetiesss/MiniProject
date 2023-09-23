@@ -48,7 +48,7 @@ public class ContractService {
         }
     }
 
-    public boolean duplicateCheck(Contract contract, List<Contract> currContract){
+    public static boolean duplicateCheck(Contract contract, List<Contract> currContract){
         boolean dup = false;
 
         String customerID;

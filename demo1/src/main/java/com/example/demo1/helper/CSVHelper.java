@@ -6,7 +6,7 @@ import com.example.demo1.entity.Customer;
 import com.example.demo1.service.ApartmentService;
 import com.example.demo1.service.ContractService;
 import com.example.demo1.service.CustomerService;
-import org.apache.tomcat.util.bcel.Const;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
@@ -19,18 +19,14 @@ import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.springframework.web.multipart.MultipartFile;
-import org.yaml.snakeyaml.scanner.Constant;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CSVHelper {
     public static String TYPE = "text/csv";
     private static final String[] CUSTOMERHEADER = { "FirstName", "LastName", "Address", "Age", "Status" };
     private static final String[] APARTMENTHEADER = { "Address", "RetalPrice", "NumberOfRoom"};
     private static final String[] CONTRACTHEADER = { "customerID", "apartmentID", "startDate", "endDate"};
+
+
     private static ApartmentService apartmentService;
     private static CustomerService customerService;
     private static ContractService contractService;
