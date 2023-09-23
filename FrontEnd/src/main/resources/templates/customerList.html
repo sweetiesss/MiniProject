@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Customer List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -35,11 +37,16 @@
     <!-- Import -->
     <h1>Import Customer</h1>
     <div class="button-container">
-        <form class = "button-link" th:action="@{/api/customer/upload}"  method="POST" enctype="multipart/form-data">
-            <div class="Import">
-                <input type="file" name="file"/>
-                <button type="submit" class="button-2" role="button" value="Upload">Upload</button>
-            </div>
+<!--        <form class = "button-link" th:action="@{/api/customer/upload}"  method="POST" enctype="multipart/form-data">-->
+<!--            <div class="Import">-->
+<!--                <input type="file" name="file"/>-->
+<!--                <button type="submit" class="button-2" role="button" value="Upload">Upload</button>-->
+<!--            </div>-->
+<!--        </form>-->
+        <form id="uploadCustomerForm" action="http://localhost:8081/api/customer/csv" method="POST"
+              enctype="multipart/form-data">
+            <input type="file" name="files" accept=".csv">
+            <button type="submit">Upload</button>
         </form>
     </div>
 
@@ -62,5 +69,6 @@
     </div>
 
 </div>
+<script src="/js/upload.js"></script>
 </body>
 </html>
