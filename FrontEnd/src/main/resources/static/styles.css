@@ -85,7 +85,6 @@ img {
     border: 0;
     max-width: 100%;
 }
-
 h1 {
     font-family: 'Amarante', Tahoma, sans-serif;
     font-weight: bold;
@@ -95,6 +94,14 @@ h1 {
     text-align: center;
 }
 
+h2{
+    font-family: 'Amarante', Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 2.6em;
+    line-height: 1.7em;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
 /** page structure **/
 #wrapper {
@@ -178,7 +185,7 @@ h1 {
     touch-action: manipulation;
 }
 
-.button-3, .button-4, .button-5{
+.button-3, .button-4, .button-5, .sidebar-button{
     background-color: #8ed7c1;
     border-radius: 8px;
     border-style: none;
@@ -202,13 +209,13 @@ h1 {
     touch-action: manipulation;
 }
 
-.button-1, .button-2, .button-3, .button-4, .button-5:hover,
+.button-1, .button-2,.button-3, .button-4, .button-5, .sidebar-button:hover,
 
 .button-1, .button-2:focus {
     background-color: #ffc0cb ;
 }
 
-.button-3, .button-4, .button-5:focus{
+.sidebar-button:focus{
     background-color: #8ed7c1 ;
 }
 .button-container {
@@ -247,4 +254,34 @@ h1 {
 
 .button-container > .button-link {
     margin: 0 10px; /* add some spacing between the buttons */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidebar-link {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.sidebar-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sidebar-button:hover {
+    background-color: #ddd;
 }

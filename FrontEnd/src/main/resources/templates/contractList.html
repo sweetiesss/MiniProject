@@ -30,46 +30,35 @@
         </tbody>
     </table>
 
-    <!-- Script cua Import va Export -->
-    <script>
-        // Function to import file
-        function importFile() {
-            const fileInput = document.getElementById('file-input');
-            fileInput.click();
-            fileInput.addEventListener('change', () => {
-                const file = fileInput.files[0];
-                // Code o day
-            });
-        }
-
-        // Function to export file
-        function exportFile() {
-            // Code o day
-        }
-    </script>
-
-    <!-- Cac Button -->
+    <!-- Import -->
+    <h1>Import Contract</h1>
     <div class="button-container">
-        <!-- Import va Export-->
-        <form class="button-link">
-            <button type="button" class="button-1" role="button" onclick="importFile()">Import File</button>
-            <button type="button" class="button-2" role="button" onclick="exportFile()">Export File</button>
-            <input type="file" id="file-input" style="display: none;">
+        <form class = "button-link" th:action="@{/api/contract/upload}" method="POST" enctype="multipart/form-data">
+            <div class="Import">
+                <input type="file" name="file"/>
+                <button type="submit" class="button-2" role="button" value="Upload">Upload</button>
+            </div>
         </form>
     </div>
 
+
     <!-- Switch between HTML -->
-    <div class="button-container">
-        <a href="http://localhost:8080/customer" class="button-link">
-            <button class="button-3" role="button">Go to Customer Page</button>
+    <div class="sidebar">
+        <h2>UI Components</h2>
+        <a href="http://localhost:8080/customer" class="sidebar-link">
+            <button class="sidebar-button">Go to Customer Page</button>
         </a>
-        <a href="http://localhost:8080/apartment" class="button-link">
-            <button class="button-4" role="button">Go to Apartment Page</button>
+        <a href="http://localhost:8080/apartment" class="sidebar-link">
+            <button class="sidebar-button">Go to Apartment Page</button>
         </a>
-        <a href="http://localhost:8080" class="button-link">
-            <button class="button-5" role="button">Back to Main Page</button>
+        <a href="http://localhost:8080/contract" class="sidebar-link">
+            <button class="sidebar-button">Go to Contract Page</button>
+        </a>
+        <a href="http://localhost:8080" class="sidebar-link">
+            <button class="sidebar-button">Back to Main Page</button>
         </a>
     </div>
+
 </div>
 </body>
 </html>
